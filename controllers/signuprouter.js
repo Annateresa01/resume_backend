@@ -27,9 +27,32 @@ router.post("/signup",async(req,res)=>{
         }
     )
 
-    })
-    
+    })})
 
-    
-})
+router.post("/login",async(req,res)=>{
+    let input=req.body
+    let emailid=req.body.emailid
+    let data=await resumerouter.findOne({"emailid":emailid})
+    console.log(data)
+    let dbpassword=data.password
+    let inputpassword=req.body.password
+    console.log(dbpassword)
+    console.log(inputpassword)
+    const match=await bcrypt.compare(inputpassword,dbpassword)
+    if(!match)
+        {
+         return res.json(
+            {
+                status:"Incorrect"
+            }
+        )
+        }
+        else{
+        res.json(
+            {
+                status:"Success"
+            }
+        )
+        }
+    })
 module.exports=router
