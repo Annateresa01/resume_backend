@@ -1,11 +1,13 @@
 const mongoose=require("mongoose")
-const signSchema=new mongoose.Schema(
+const usermodel=mongoose.Schema(
     {
-        username:String,
-        useremail:String,
-        userno:String,
-        useradrs:String,
-        userpassword:String
+        name:String,
+        age:String,
+        mobno:String,
+        adrs:String,
+        emailid:String,
+        password:String
+
     }
 )
-module.exports=mongoose.Schema("resumes",signSchema)
+module.exports=mongoose.model("resumes",usermodel)
