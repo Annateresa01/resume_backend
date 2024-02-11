@@ -12,9 +12,11 @@ hashpasswordgenerator=async(pass)=>{
 router.post("/signup",async(req,res)=>{
     let {data}={data:req.body}
     let password=data.userpassword
-    hashpasswordgenerator(password).then((hashedpassword)=>
+    hashpasswordgenerator(password).then(
+        (hashedpassword)=>
     {
-        data.userpassword=hashedpassword
+        console.log(hashedpassword)
+        data.password=hashedpassword
         console.log(data)
           
     let resumes=new resumerouter(data)
