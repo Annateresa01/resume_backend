@@ -11,7 +11,7 @@ hashpasswordgenerator=async(pass)=>{
 
 router.post("/signup",async(req,res)=>{
     let {data}={data:req.body}
-    let password=data.userpassword
+    let password=data.password
     hashpasswordgenerator(password).then(
         (hashedpassword)=>
     {
@@ -30,10 +30,6 @@ router.post("/signup",async(req,res)=>{
     })
     
 
-    
-})
-router.get("/login",async(req,res)=>
-{
     
 })
 module.exports=router
